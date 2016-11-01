@@ -1,0 +1,30 @@
+###Set Quantiles
+###Added Round to create Whole numbers since rankings were getting dropped
+
+rankQuants <- round(quantile(df.MergedData$Ranking, probs = seq(0,1, by = .20)), digits = 0)
+
+
+###Getting the length of the MergedData Set
+
+Length <- 1:length(df.MergedData$GDP)
+
+
+###Create the Cut Points for the rankings
+
+cuts <- rankQuants
+
+#Creates the labels for the Quantiles
+labs <- c("<20%","21%-40%","41%-60%","61%-80%",">80%")
+
+#Creates new Column in the MergedData Data Set using the Labels built previously
+df.MergedData$Quants <- labs[findInterval(Length, cuts)]
+
+
+###Create Question 5 data frame
+
+df.Question5Analysis <- sqldf('select CountryCode, [Short.Name], Ranking, Quants, [income.Group] from [df.MergedData]')
+
+
+###Create table of Income Group Vs Quantiles
+
+Question5Table <- table(df.Question5Analysis$Income.Group,df.Question5Analysis$Quants )

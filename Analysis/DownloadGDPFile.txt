@@ -1,0 +1,35 @@
+#Get data into R
+##URL of GDP data
+URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
+x <- getURL(URL)
+
+#load data using the read CSV function
+loadData <- suppressWarnings(read.csv(textConnection(x)))
+
+#view headers of the data we just loaded
+head(loadData)
+
+#Update Gross Domestic Product to become numeric
+loadData$Gross.domestic.product.2012 <- suppressWarnings(as.numeric(as.character(loadData$Gross.domestic.product.2012)))
+
+#Subset data to only include valid GDP data
+GDPData <- subset(loadData, !is.na(Gross.domestic.product.2012))
+
+#Alter the names of the GDPData vector to match for merge
+names(GDPData) <- c("CountryCode", "Ranking", "Erase", "CountryName", "GDP")
+
+#Create Clean simple 4 column dataset
+GDPData.Clean <- subset(GDPData, select = c("CountryCode", "Ranking", "CountryName", "GDP"))
+
+destFileLocation = "./Data/GDPData.csv"
+
+#See if file Exists 
+ if (file.exists(destFileLocation)) {
+
+	file.remove(destFileLocation)	
+
+ }
+
+#Create new file 
+write.csv(GDPData.Clean, file = "./Data/GDPData.csv") 
+

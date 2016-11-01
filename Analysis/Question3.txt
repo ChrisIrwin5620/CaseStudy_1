@@ -1,0 +1,10 @@
+#Create a subset of the matched data that only contains certain Income.Groups
+df.Question3Data <- subset(df.MergedData, df.MergedData$Income.Group == 'High income: OECD' | df.MergedData$Income.Group == 'High income: nonOECD')
+
+
+#Write a query to help find the average GDP Rankings
+
+average.RankIncomeGroup <- sqldf('select [Income.Group], avg([Ranking]) as AvgRank from [df.Question3Data] group by [Income.Group] order by [Income.Group]')
+
+#Average Rank per Income Group
+average.RankIncomeGroup

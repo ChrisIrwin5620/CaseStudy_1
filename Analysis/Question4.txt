@@ -1,0 +1,16 @@
+###Create the original plot
+
+plot <- ggplot(df.MergedData, aes(x = df.MergedData$CountryCode, y = df.MergedData$GDP.N), )
+
+###Create the bar chart for the plot area
+###Also Assign Colors for the Different Groups
+point <- geom_bar(stat = "Identity",aes(color = factor(df.MergedData$Income.Group))) 
+
+###Create Title for the chart
+title <- ggtitle("GDP by Income Group") 
+
+###Create X and Y Lables
+labels <- labs(x= "Income Group",y="Total GDP")
+
+###Create Graph Legand
+legendInfo <- theme(legend.title=element_blank())

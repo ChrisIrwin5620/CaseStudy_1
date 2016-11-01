@@ -1,0 +1,9 @@
+
+###Merging two data files into single data frame
+
+#Merge then data using Country Code
+df.MergedData <- merge(GDPData.Clean, GDPFedStats, by = "CountryCode")
+
+###Create new column for GDP that is a numeric data type
+df.MergedData$GDP.N <- as.numeric(gsub("[^[:digit:]]","", df.MergedData$GDP))
+

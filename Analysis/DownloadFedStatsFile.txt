@@ -1,0 +1,21 @@
+#Download second file
+##Get URL for Second file
+URLForFedData <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv"
+
+#Get CSV data for the URL
+conn <- getURL(URLForFedData)
+
+#read CSV into FedStats Data Frame
+GDPFedStats <- suppressWarnings(read.csv(textConnection(conn)))
+
+#Set the Second file location
+dest2FileLocation = "./Data/FedStats.csv"
+
+#See if second file Exists 
+ if (file.exists(dest2FileLocation)) {
+
+	file.remove(dest2FileLocation)	
+
+ }
+
+write.csv(GDPFedStats, file = "./Data/FedStats.csv") 

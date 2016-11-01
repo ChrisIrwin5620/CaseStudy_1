@@ -1,0 +1,33 @@
+#load RCurl library to load files
+library(RCurl)
+
+#Load the SQL query library
+library(sqldf)
+
+#load GGplot2
+library(ggplot2)
+
+
+#Data Subfolder
+dataFolderLocation = "./Data"
+
+
+#Analysis SubFolder
+analysisFolderLocation = "./Analysis"
+
+
+#Look to see if the Data folder is already created. 
+if(!file.exists(dataFolderLocation)){
+	
+	#Create Directory for Data
+	dir.create(dataFolderLocation)
+
+}
+
+#Look to see if the Analysis folder is already created. 
+if(!file.exists(analysisFolderLocation)){
+	
+	#Create Directory for Data
+	dir.create(analysisFolderLocation)
+
+}
