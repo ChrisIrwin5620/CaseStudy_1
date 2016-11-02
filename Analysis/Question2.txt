@@ -1,0 +1,5 @@
+###Order Merged Data by Numeric GDP data type
+df.MergedData <- df.MergedData[order(df.MergedData$GDP.N),]
+
+#Select the 13th item of the data frame
+GDP.Info <- df.MergedData[13,]
