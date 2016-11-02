@@ -181,23 +181,28 @@ $(document).ready(function () {
 </div>
 <div id="question-1" class="section level2">
 <h2>Question 1</h2>
-<div id="get-the-length-of-the-matched-datasets" class="section level3">
-<h3>Get the length of the matched datasets</h3>
+<div id="get-the-length-of-the-matched-datasets" class="section level4">
+<h4>Get the length of the matched datasets</h4>
 <pre class="r"><code>length(df.MergedData$CountryCode)</code></pre>
 <pre><code>## [1] 189</code></pre>
 </div>
 </div>
 <div id="question-2" class="section level2">
 <h2>Question 2</h2>
-<div id="order-merged-data-by-numeric-gdp-data-type" class="section level3">
-<h3>Order Merged Data by Numeric GDP data type</h3>
-<pre class="r"><code>df.MergedData &lt;- df.MergedData[order(df.MergedData$GDP.N),]</code></pre>
+<div id="country-with-the-13th-lowest-gdp" class="section level4">
+<h4>Country with the 13th lowest GDP</h4>
+<pre class="r"><code>source(&quot;./Analysis/Question2.txt&quot;)
+
+#Select the Short Name from the 13th GDP 
+GDP.Info[c(&quot;Short.Name&quot;)]</code></pre>
+<pre><code>##             Short.Name
+## 93 St. Kitts and Nevis</code></pre>
 </div>
 </div>
 <div id="question-3" class="section level2">
 <h2>Question 3</h2>
-<div id="execute-script-to-get-13th-lowest-gdp" class="section level3">
-<h3>Execute Script to Get 13th lowest GDP</h3>
+<div id="average-gdp-rankings-for-the-high-income-oecd-and-high-incomenonoecd-groups" class="section level4">
+<h4>average GDP rankings for the “High income: OECD” and “High income:nonOECD” groups</h4>
 <pre class="r"><code>source(&quot;./Analysis/Question3.txt&quot;)
 
 #Average Rank per Income Group
@@ -209,8 +214,8 @@ average.RankIncomeGroup</code></pre>
 </div>
 <div id="question-4" class="section level2">
 <h2>Question 4</h2>
-<div id="execute-and-run-the-entire-graph" class="section level3">
-<h3>Execute and Run the Entire Graph</h3>
+<div id="execute-and-run-the-entire-graph" class="section level4">
+<h4>Execute and Run the Entire Graph</h4>
 <pre class="r"><code>#Execute Script to build Graph
 source(&quot;./Analysis/Question4.txt&quot;)
 
@@ -221,10 +226,11 @@ plot + point + title + labels + legendInfo</code></pre>
 </div>
 <div id="question-5" class="section level2">
 <h2>Question 5</h2>
-<pre class="r"><code>source(&quot;./Analysis/Question5.txt&quot;)</code></pre>
-<div id="create-table-of-income-group-vs-quantiles" class="section level3">
-<h3>Create table of Income Group Vs Quantiles</h3>
-<pre class="r"><code>Question5Table[,Select = (&quot;&gt;80%&quot;)]</code></pre>
+<div id="create-table-of-income-group-vs-quantiles" class="section level4">
+<h4>Create table of Income Group Vs Quantiles</h4>
+<pre class="r"><code>source(&quot;./Analysis/Question5.txt&quot;)
+
+Question5Table[,Select = (&quot;&gt;80%&quot;)]</code></pre>
 <pre><code>##                      High income: nonOECD    High income: OECD 
 ##                    0                    4                   18 
 ##           Low income  Lower middle income  Upper middle income 

@@ -61,19 +61,21 @@ source("./Analysis/MergeData.txt")
 ```
 
 ##Question 1
-###Get the length of the matched datasets
+####Get the length of the matched datasets
 ```{r}
 length(df.MergedData$CountryCode)
 ```
 
 ##Question 2
-###Order Merged Data by Numeric GDP data type
+####Country with the 13th lowest GDP
 ```{r}
-df.MergedData <- df.MergedData[order(df.MergedData$GDP.N),]
+source("./Analysis/Question2.txt")
 
+#Select the Short Name from the 13th GDP 
+GDP.Info[c("Short.Name")]
 ```
 ##Question 3
-###Execute Script to Get 13th lowest GDP
+####average GDP rankings for the "High income: OECD" and "High income:nonOECD" groups
 ```{r}
 source("./Analysis/Question3.txt")
 
@@ -83,7 +85,7 @@ average.RankIncomeGroup
 
 
 ##Question 4
-###Execute and Run the Entire Graph
+####Execute and Run the Entire Graph
 ```{r}
 #Execute Script to build Graph
 source("./Analysis/Question4.txt")
@@ -93,12 +95,10 @@ plot + point + title + labels + legendInfo
 ```
 
 ##Question 5
+####Create table of Income Group Vs Quantiles
 ```{r}
 source("./Analysis/Question5.txt")
-```
 
-###Create table of Income Group Vs Quantiles
-```{r}
 Question5Table[,Select = (">80%")]
 ```
 

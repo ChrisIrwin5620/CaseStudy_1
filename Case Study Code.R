@@ -41,8 +41,11 @@ source("./Analysis/MergeData.txt")
 length(df.MergedData$CountryCode)
 
 ##Question 2
-###Order Merged Data by Numeric GDP data type
-df.MergedData <- df.MergedData[order(df.MergedData$GDP.N),]
+####Country with the 13th lowest GDP
+source("./Analysis/Question2.txt")
+
+#Select the Short Name from the 13th GDP 
+GDP.Info[c("Short.Name")]
 
 ##Question 3
 ###Execute Script to Get 13th lowest GDP
